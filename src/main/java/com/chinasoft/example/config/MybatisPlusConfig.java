@@ -1,4 +1,4 @@
-package com.chinasoft.example.demo.config;
+package com.chinasoft.example.config;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.autoconfigure.ConfigurationCustomizer;
@@ -20,7 +20,7 @@ import java.util.Map;
  */
 @EnableTransactionManagement
 @Configuration
-@MapperScan(basePackages = {"com.chinasoft.sync.*"})
+@MapperScan("com.chinasoft.example.mapper")
 public class MybatisPlusConfig {
     /**
      * 新的分页插件,一缓和二缓遵循mybatis的规则,需要设置 MybatisConfiguration#useDeprecatedExecutor = false 避免缓存出现问题

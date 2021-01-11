@@ -1,4 +1,4 @@
-package com.chinasoft.example.demo.config;
+package com.chinasoft.example.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,4 +1,4 @@
-package com.chinasoft.example.demo;
+package com.chinasoft.example;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.core.exceptions.MybatisPlusException;
@@ -67,7 +67,7 @@ public class CodeGenerator {
         // 包配置
         PackageConfig pc = new PackageConfig();
 //        pc.setModuleName(scanner("模块名"));
-        pc.setParent("com.chinasoft.sync"); //项目的包名
+        pc.setParent("com.chinasoft.example"); //===========项目的包名==========
         mpg.setPackageInfo(pc);
 
         // 自定义配置
@@ -136,7 +136,7 @@ public class CodeGenerator {
         // 写于父类中的公共字段
 //        strategy.setSuperEntityColumns("id");
 //        strategy.setInclude(scanner("表名，多个英文逗号分割").split(","));
-        strategy.setExclude(null);
+//        strategy.setExclude(null);
         strategy.setControllerMappingHyphenStyle(true);
 //        strategy.setTablePrefix(pc.getModuleName() + "_");
         mpg.setStrategy(strategy);

@@ -1,4 +1,4 @@
-package com.chinasoft.example.demo;
+package com.chinasoft.example;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
