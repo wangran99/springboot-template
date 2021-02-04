@@ -31,3 +31,5 @@ void test(){
 -----
 数据库封装了分页查询、动态表明等功能。
 数据库代码自动生成方法参考：[mybatis-plus代码自动生成](https://mp.baomidou.com/guide/generator.html)
+
+数据库生成代码执行方法在CodeGenerator类中
