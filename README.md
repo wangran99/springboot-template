@@ -1,7 +1,8 @@
 # chinasoft-framework
 
-基于welink的服务端项目项目骨架。对welink开放平台接口进行了封装，对数据库访问进行了封装。。。。。。
+基于welink的服务端项目项目骨架。对welink开放平台接口进行了封装，对数据库访问进行了封装。如有新的需求，请联系我。
 
+------
 [Welink开放平台服务端](https://open.welink.huaweicloud.com/docs/) 接口调用封装
 # 使用方法
 在springboot项目的application.properties中添加welink We码或者轻应用的clientId和clientSecretKey。
@@ -25,6 +26,8 @@ void test(){
     TenantInfoRes   tenantInfoRes = openAPI.getTenantInfo(authRes.getAccess_token());
 }
 ```
-更多接口封装在openAPI类中。
+更多welink开放平台接口封装在openAPI类中。
 
+-----
+数据库封装了分页查询、动态表明等功能。
 数据库代码自动生成方法参考：[mybatis-plus代码自动生成](https://mp.baomidou.com/guide/generator.html)
