@@ -12,7 +12,7 @@ public enum ResultCode implements IException {
 
     SUCCESS(0, "Success."),
     ErrorOperationFailed(1,"Operation failed."),
-    AuthFailedOrExpired(3,"user authorization failed or expired."),
+    AuthFailedOrExpired(2,"user authorization failed or expired."),
 
     //search parameter error
     SEARCH_OFFSET_OR_LIMIT_EMPTY(56120, "the parameter offset or limit cannot be null"),
