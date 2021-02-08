@@ -1,7 +1,7 @@
 # chinasoft-framework
 
 基于welink的服务端项目项目骨架。对welink开放平台接口进行了封装，对数据库访问进行了封装。如有新的需求，请联系我。
-
+[后端开发须知](http://192.168.11.111:8090/x/jgAF)
 ------
 [Welink开放平台服务端](https://open.welink.huaweicloud.com/docs/) 接口调用封装
 # 使用方法

@@ -8,6 +8,7 @@ import org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
+@MapperScan("com.chinasoft.example.mapper")
 public class DemoApplication {
 
     public static void main(String[] args) {

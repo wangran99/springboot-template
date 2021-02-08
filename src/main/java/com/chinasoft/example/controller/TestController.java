@@ -2,10 +2,12 @@ package com.chinasoft.example.controller;
 
 //import com.chinasoft.example.service.ILoginUserService;
 import com.chinasoft.example.mapper.LoginUserMapper;
+import com.chinasoft.example.redis.RedisService;
 import com.chinasoft.example.service.ILoginUserService;
 import com.github.wangran99.welink.api.client.openapi.OpenAPI;
 import com.github.wangran99.welink.api.client.openapi.model.AuthRes;
 import com.github.wangran99.welink.api.client.openapi.model.TenantInfoRes;
+import com.github.wangran99.welink.api.client.openapi.model.UserBasicInfoRes;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.http.HttpMessageConverters;
@@ -33,6 +35,9 @@ public class TestController {
 
     @Autowired
     HttpMessageConverters httpMessageConverters;
+
+    @Autowired
+    RedisService redisService;
 
     /**
      * 测试返回字符串
@@ -63,5 +68,29 @@ public class TestController {
     public Object time(){
        return loginUserMapper.selectList(null);
 //        return null;
+    }
+
+    @GetMapping("null")
+    public Object testnull(){
+        return null;
+    }
+
+    @GetMapping("exception")
+    public Object testException(){
+       throw new NullPointerException("test null exception.");
+    }
+
+    @GetMapping("redis")
+    public UserBasicInfoRes testRedisSave(){
+        String userId ="zhoulipeng@49c415a8500";
+        UserBasicInfoRes userBasicInfoRes = openAPI.getUserInfoById(authRes.getAccess_token(), userId);
+        redisService.saveUserInfo(userId,userBasicInfoRes);
+        return userBasicInfoRes;
+    }
+
+    @GetMapping("redisget")
+    public UserBasicInfoRes testRedisGet(){
+        String userId ="zhoulipeng@49c415a8500";
+       return redisService.getUserInfo(userId);
     }
 }

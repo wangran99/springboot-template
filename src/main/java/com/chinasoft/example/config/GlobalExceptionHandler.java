@@ -1,6 +1,7 @@
 package com.chinasoft.example.config;
 
 
+import com.chinasoft.example.exception.CommonException;
 import com.github.wangran99.welink.api.client.openapi.model.AuthFailOrExpiredException;
 import com.github.wangran99.welink.api.client.openapi.model.OpenApiException;
 import com.github.wangran99.welink.api.client.openapi.model.ResultVO;
@@ -78,7 +79,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(value = AuthFailOrExpiredException.class)
     public ResultVO handlerAuthFailOrExpiredException(AuthFailOrExpiredException e) {
         log.error("AuthFailOrExpiredException: errCode:" + e.getCode() + ",msg:" + e.getMsg(), e);
-        return ResultVO.getError(e.getMessage());
+        return ResultVO.getAuthFailOrExpired(e.getMessage(),e.getAuthUrl());
     }
 
     /**
@@ -90,6 +91,18 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(value = NullPointerException.class)
     public ResultVO handlerNullPointerException(NullPointerException e) {
         log.error("发生空指针异常！原因是:", e);
+        return ResultVO.getError(e.getMessage());
+    }
+
+    /**
+     * 通用异常
+     *
+     * @param e
+     * @return
+     */
+    @ExceptionHandler(value = CommonException.class)
+    public ResultVO handlerCommonException(CommonException e) {
+        log.error("发生通用异常！原因是:", e);
         return ResultVO.getError(e.getMessage());
     }
 
