@@ -13,5 +13,8 @@ public class Constants {
 
     public static final String AUTH_CODE = "authCode";
 
+    /** 服务器返回需要重定向的标志header     */
+    public static final String REDIRECT_URL_HEADER = "loginUrl";
+
 
 }
