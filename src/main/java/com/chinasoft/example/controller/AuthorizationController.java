@@ -2,7 +2,6 @@ package com.chinasoft.example.controller;
 
 import com.chinasoft.example.constant.Constants;
 import com.chinasoft.example.constant.ResultCode;
-import com.chinasoft.example.domain.JsAuthDomain;
 import com.chinasoft.example.redis.RedisService;
 import com.github.wangran99.welink.api.client.openapi.OpenAPI;
 import com.github.wangran99.welink.api.client.openapi.OpenManagerApi;
@@ -61,7 +60,7 @@ public class AuthorizationController {
      * @return
      */
     @GetMapping(value = "/wecode")
-    public UserBasicInfoRes authorization(String authCode, HttpServletResponse response) {
+    public UserBasicInfoRes wecodeAuthorization(String authCode, HttpServletResponse response) {
         //获取用户id和租户id
         UserIdInfo userInfo = openAPI.getUserBasicIdInfo(authRes.getAccess_token(), authCode);
         //获取个人信息。
@@ -78,7 +77,7 @@ public class AuthorizationController {
      * @return
      */
     @GetMapping(value = "jsauth")
-    public JsAuthDomain authorization(@RequestParam(value = "requestUrl") String requestUrl, HttpServletRequest request) {
+    public JsAuthDomain jsAuthorization(@RequestParam(value = "requestUrl") String requestUrl, HttpServletRequest request) {
         log.info("requesturl:::::::::::" + requestUrl);
         boolean fromMobile = true;
         String value = request.getHeader("user-agent");

@@ -25,7 +25,6 @@ import java.util.Iterator;
 import java.util.Set;
 
 @Slf4j
-@WebFilter
 public class CommonFilter implements Filter {
     private final static Set<String> excludeUri = new HashSet<>(
             Arrays.asList("/authorization/*", "/druid/*", "/test/*"));
