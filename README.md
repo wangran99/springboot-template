@@ -48,6 +48,17 @@ public class ResultVO {
 数据库生成代码执行方法在CodeGenerator类中
 ### Redis缓存封装
 Redis缓存用户信息、租户信息的操作封装在RedisService类中，如需缓存其他数据，添加相应方法即可。
+### 接口调用次数限制
+接口调用次数限制注解@RequestLimit ，防止接口被频繁调用。
+```java
+@GetMapping("welink")
+@RequestLimit(maxCount = 10, timeout = 60)
+public TenantInfoRes welink(){
+     TenantInfoRes tenantInfoRes = openAPI.getTenantInfo(authRes.getAccess_token());
+     return tenantInfoRes;
+}
+```
+上边的接口调用限制为60秒钟最多调用10次。
 ### 统一异常返回封装
 所有类型的异常统一处理，异常处理代码封装在GlobalExceptionHandler类中，项目中需要用到的异常，直接抛出throw即可，会封装成统一的ResultVO返回前端。
 自定义的异常需要继承CommonException类，异常编号（code）需要在ResultCode类中定义。
