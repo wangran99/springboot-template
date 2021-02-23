@@ -1,6 +1,7 @@
 package com.chinasoft.example.controller;
 
 //import com.chinasoft.example.service.ILoginUserService;
+import com.chinasoft.example.annotation.RequestLimit;
 import com.chinasoft.example.mapper.LoginUserMapper;
 import com.chinasoft.example.redis.RedisService;
 import com.chinasoft.example.service.ILoginUserService;
@@ -53,6 +54,7 @@ public class TestController {
      * @return
      */
     @GetMapping("welink")
+    @RequestLimit
     public TenantInfoRes welink(){
         TenantInfoRes tenantInfoRes = openAPI.getTenantInfo(authRes.getAccess_token());
         return tenantInfoRes;

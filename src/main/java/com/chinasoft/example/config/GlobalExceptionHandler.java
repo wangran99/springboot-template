@@ -2,6 +2,7 @@ package com.chinasoft.example.config;
 
 
 import com.chinasoft.example.exception.CommonException;
+import com.chinasoft.example.exception.RequestLimitException;
 import com.github.wangran99.welink.api.client.openapi.model.AuthFailOrExpiredException;
 import com.github.wangran99.welink.api.client.openapi.model.OpenApiException;
 import com.github.wangran99.welink.api.client.openapi.model.ResultVO;
@@ -34,17 +35,6 @@ public class GlobalExceptionHandler {
         return ResultVO.getError(e.getMessage());
     }
 
-    /**
-     * 参数合法性校验异常
-     *
-     * @param e
-     * @return
-     */
-    @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResultVO handleMethodArgumentNotValidException(MethodArgumentNotValidException e) {
-        log.error("参数校验异常-{}--{}", e.getParameter(), e.getMessage(), e);
-        return ResultVO.getError(e.getMessage());
-    }
 
     /**
      * 参数合法性校验异常-类型不匹配
@@ -52,9 +42,9 @@ public class GlobalExceptionHandler {
      * @param e
      * @return
      */
-    @ExceptionHandler(MethodArgumentTypeMismatchException.class)
-    public ResultVO handleMethodArgumentTypeMismatchException(MethodArgumentTypeMismatchException e) {
-        log.error("参数校验异常--{}-{}", e.getParameter(), e.getMessage(), e);
+    @ExceptionHandler(RequestLimitException.class)
+    public ResultVO handleRequestLimitException(RequestLimitException e) {
+        log.error("RequestLimitException--{}", e.getMessage(), e);
         return ResultVO.getError(e.getMessage());
     }
 
