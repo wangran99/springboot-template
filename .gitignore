@@ -34,3 +34,4 @@ build/
 /.mvn
 /.idea
 /demo-log
+/example-log

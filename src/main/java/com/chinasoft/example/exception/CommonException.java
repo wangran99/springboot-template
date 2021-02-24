@@ -2,6 +2,9 @@ package com.chinasoft.example.exception;
 
 import com.github.wangran99.welink.api.client.openapi.model.IException;
 
+/**
+ * 通用异常类
+ */
 public class CommonException extends RuntimeException{
 
     private int  code;

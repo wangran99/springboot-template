@@ -31,6 +31,10 @@ public class TestController {
     OpenAPI openAPI;
     @Autowired
     AuthRes authRes;
+
+    @Autowired
+    LoginUserMapper loginUserMapper;
+
     @Autowired
     ILoginUserService iLoginUserService;
 
@@ -60,8 +64,7 @@ public class TestController {
         return tenantInfoRes;
     }
 
-    @Autowired
-    LoginUserMapper loginUserMapper;
+
     /**
      * 测试数据库读取是否正常
      * @return
@@ -78,7 +81,7 @@ public class TestController {
     }
 
     @GetMapping("exception")
-    public Object testException(){
+    public Object testException(String test){
        throw new NullPointerException("test null exception.");
     }
 
