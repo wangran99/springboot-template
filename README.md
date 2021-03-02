@@ -58,7 +58,7 @@ public TenantInfoRes welink(){
      return tenantInfoRes;
 }
 ```
-上边的接口调用限制为60秒钟最多调用10次。
+上边的接口调用限制为同一个token（用户）在60秒钟最多调用10次。
 ### 统一异常返回封装
 所有类型的异常统一处理，异常处理代码封装在GlobalExceptionHandler类中，项目中需要用到的异常，直接抛出throw即可，会封装成统一的ResultVO返回前端。
 自定义的异常需要继承CommonException类，异常编号（code）需要在ResultCode类中定义。

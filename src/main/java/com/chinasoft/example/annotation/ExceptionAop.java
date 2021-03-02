@@ -13,7 +13,7 @@ import java.lang.reflect.Parameter;
 import java.util.Arrays;
 
 /**
- * 异常切面。记录异常上下文（打印发生异常的方法和参数）
+ * 异常切面。记录异常上下文（打印发生异常时所在的方法和参数）
  */
 @Aspect
 @Component
@@ -33,7 +33,7 @@ public class ExceptionAop {
 
             log.error("exception!method full name:{},", getClassAndMethodName(method));
             for (int i = 0; i < parameterNames.length; i++)
-                log.error("exception!parameterName:{}={}", parameterNames[i], args[i].toString());
+                log.error("exception!parameterName:{}={}", parameterNames[i], args[i] == null ? "null" : args[i].toString());
             throw (RuntimeException) throwable;
         }
     }
@@ -47,7 +47,7 @@ public class ExceptionAop {
         Parameter[] parameters = method.getParameters();
         StringBuffer stringBuffer = new StringBuffer(className).append(".")
                 .append(methodName).append("(");
-        Arrays.stream(parameters).forEach(e -> stringBuffer.append(e));
+        Arrays.stream(parameters).forEach(stringBuffer::append);
         return stringBuffer.append(")").toString();
     }
 }
