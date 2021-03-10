@@ -22,6 +22,14 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 
+/**
+ * <p>
+ *  认证鉴权请求控制器
+ * </p>
+ *
+ * @author WangRan
+ * @since 2021-03-05
+ */
 @RestController
 @RequestMapping("/authorization")
 @Slf4j
@@ -70,10 +78,11 @@ public class AuthorizationController {
         return userBasicInfoRes;
     }
 
+
     /**
-     * H5轻应用鉴权登录 文档：https://open.welink.huaweicloud.com/docs/#/qdmtm8/tj778t/wk8q1m?type=third
-     *
-     * @param
+     * H5轻应用鉴权登录 开放平台文档：https://open.welink.huaweicloud.com/docs/#/qdmtm8/tj778t/wk8q1m?type=third
+     * @param requestUrl 前端页面的url
+     * @param request request
      * @return
      */
     @GetMapping(value = "jsauth")
@@ -116,7 +125,7 @@ public class AuthorizationController {
     /**
      * 后台web管理页面免登
      *
-     * @param code
+     * @param code welink跳转后传过来的code
      * @param state
      * @param request
      * @param response
