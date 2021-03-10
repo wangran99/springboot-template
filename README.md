@@ -127,9 +127,12 @@ public class ApplyController {
 对controller接口注释后，执行mvn clean package或者在IDEA插件中选择smart-doc:html生成接口文档。
 ![smart-doc-maven-plugin](https://raw.githubusercontent.com/shalousun/smart-doc-maven-plugin/master/images/idea.png)
 生成的文档可以在 http://ip:端口/项目名/static/debug-all.html 查看，效果如图：
-![smart-doc-api](https://gitee.com/smart-doc-team/smart-doc/raw/master/screen/example.png)
-![smart-doc-api](https://gitee.com/smart-doc-team/smart-doc/raw/master/screen/request-header.png)
+![请求参数](https://gitee.com/smart-doc-team/smart-doc/raw/master/screen/example.png)
+![请求body](https://gitee.com/smart-doc-team/smart-doc/raw/master/screen/request-body.png)
+![返回body](https://gitee.com/smart-doc-team/smart-doc/raw/master/screen/request-response.png)
+![请求头](https://gitee.com/smart-doc-team/smart-doc/raw/master/screen/request-header.png)
 接口地址、参数类型、参数意义等都是根据注释的代码生成。
 smart-doc插件更多功能见官网。
+
 
 
