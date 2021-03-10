@@ -62,3 +62,74 @@ public TenantInfoRes welink(){
 ### 统一异常返回封装
 所有类型的异常统一处理，异常处理代码封装在GlobalExceptionHandler类中，项目中需要用到的异常，直接抛出throw即可，会封装成统一的ResultVO返回前端。
 自定义的异常需要继承CommonException类，异常编号（code）需要在ResultCode类中定义。
+### 接口文档自动生成
+整合 [Smart-doc maven插件](https://gitee.com/smart-doc-team/smart-doc) 自动生成接口文档，方便前后端联调。
+后端开发者需要对每个controller接口进行注释，注释内容包括接口的用户、每个参数的意义，对于Object类型参数或者返回值，可以注释每个object中字段的意义，注释代码示例：
+```java
+/**
+ * <p>
+ * 访客请求控制器
+ * </p>
+ *
+ * @author WangRan
+ * @since 2021-03-05
+ */
+@RestController
+@RequestMapping("/apply")
+public class ApplyController {
+    
+    @Autowired
+    RedisService redisService;
+
+    @Autowired
+    IApplyService applyService;
+
+    /**
+     * 添加访客审批
+     *
+     * @param visitorDto 审批请求数据
+     * @param authCode   请求token
+     * @return
+     */
+    @PostMapping("add")
+    public boolean addApply(@RequestBody VisitorDto visitorDto, @RequestHeader("authCode") String authCode) {
+        UserBasicInfoRes userBasicInfoRes = redisService.getUserInfo(authCode);
+        return applyService.addApply(visitorDto, userBasicInfoRes);
+    }
+
+    /**
+     * 我的访客申请列表
+     *
+     * @param authCode 请求token
+     * @return
+     */
+    @GetMapping("myapplication")
+    public Page<VisitorDto> myApplication(long pageNum, long pageSize, @RequestHeader("authCode") String authCode) {
+        UserBasicInfoRes userBasicInfoRes = redisService.getUserInfo(authCode);
+        return applyService.findApplyByUserId(userBasicInfoRes.getUserId(), pageNum, pageSize);
+    }
+
+    /**
+     * 待我审批的访客申请列表
+     *
+     * @param pageNum
+     * @param pageSize
+     * @param authCode
+     * @return
+     */
+    @GetMapping("pendingapplication")
+    public Page<VisitorDto> pendingApplication(long pageNum, long pageSize, @RequestHeader("authCode") String authCode) {
+        UserBasicInfoRes userBasicInfoRes = redisService.getUserInfo(authCode);
+        return applyService.findPendingApplyByUserId(userBasicInfoRes.getUserId(), pageNum, pageSize);
+    }
+}
+```
+对controller接口注释后，执行mvn clean package或者在IDEA插件中选择smart-doc:html生成接口文档。
+![smart-doc-maven-plugin](https://raw.githubusercontent.com/shalousun/smart-doc-maven-plugin/master/images/idea.png)
+生成的文档可以在 http://ip:端口/项目名/static/debug-all.html 查看，效果如图：
+![smart-doc-api](https://gitee.com/smart-doc-team/smart-doc/raw/master/screen/example.png)
+![smart-doc-api](https://gitee.com/smart-doc-team/smart-doc/raw/master/screen/request-header.png)
+接口地址、参数类型、参数意义等都是根据注释的代码生成。
+smart-doc插件更多功能见官网。
+
+

@@ -29,6 +29,7 @@ public class TestController {
 
     @Autowired
     OpenAPI openAPI;
+
     @Autowired
     AuthRes authRes;
 
@@ -37,9 +38,6 @@ public class TestController {
 
     @Autowired
     ILoginUserService iLoginUserService;
-
-    @Autowired
-    HttpMessageConverters httpMessageConverters;
 
     @Autowired
     RedisService redisService;
