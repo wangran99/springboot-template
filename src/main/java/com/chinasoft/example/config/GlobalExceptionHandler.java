@@ -80,8 +80,8 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(value = NullPointerException.class)
     public ResultVO handlerNullPointerException(NullPointerException e) {
-        log.error("发生空指针异常！原因是:", e);
-        return ResultVO.getError(e.getMessage());
+        log.error("发生空指针异常！", e);
+        return ResultVO.getError("空指针异常");
     }
 
     /**
@@ -92,7 +92,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(value = CommonException.class)
     public ResultVO handlerCommonException(CommonException e) {
-        log.error("发生通用异常！原因是:", e);
+        log.error("发生通用异常！", e);
         return ResultVO.getError(e.getMessage());
     }
 

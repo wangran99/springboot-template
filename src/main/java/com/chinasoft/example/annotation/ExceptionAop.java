@@ -31,9 +31,9 @@ public class ExceptionAop {
             String[] parameterNames = methodSignature.getParameterNames();
             Method method = methodSignature.getMethod();
 
-            log.error("exception!method full name:{},", getClassAndMethodName(method));
+            log.error("exception!method full name:{}", getClassAndMethodName(method));
             for (int i = 0; i < parameterNames.length; i++)
-                log.error("exception!parameterName:{}={}", parameterNames[i], args[i] == null ? "null" : args[i].toString());
+                log.error("exception!parameterName:{} = {}", parameterNames[i], args[i] == null ? "null" : args[i].toString());
             throw (RuntimeException) throwable;
         }
     }
@@ -47,7 +47,7 @@ public class ExceptionAop {
         Parameter[] parameters = method.getParameters();
         StringBuffer stringBuffer = new StringBuffer(className).append(".")
                 .append(methodName).append("(");
-        Arrays.stream(parameters).forEach(stringBuffer::append);
+        Arrays.stream(parameters).forEach(e -> stringBuffer.append(e).append(", "));
         return stringBuffer.append(")").toString();
     }
 }
