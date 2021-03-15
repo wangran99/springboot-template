@@ -31,13 +31,13 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(Exception.class)
     public ResultVO handlerExceptionHello(Exception e) {
-        log.error("exception" + e.getMessage(), e);
+        log.error("exception！" + e.getMessage(), e);
         return ResultVO.getError(e.getMessage());
     }
 
 
     /**
-     * 参数合法性校验异常-类型不匹配
+     * 接口请求次数超过限制次数异常
      *
      * @param e
      * @return
