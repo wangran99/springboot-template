@@ -69,7 +69,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(value = AuthFailOrExpiredException.class)
     public ResultVO handlerAuthFailOrExpiredException(AuthFailOrExpiredException e) {
         log.error("AuthFailOrExpiredException: errCode:" + e.getCode() + ",msg:" + e.getMsg(), e);
-        return ResultVO.getAuthFailOrExpired(e.getMessage(),e.getAuthUrl());
+        return ResultVO.getAuthFailOrExpired(e.getMessage(), e.getAuthUrl());
     }
 
     /**

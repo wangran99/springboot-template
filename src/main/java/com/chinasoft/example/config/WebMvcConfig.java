@@ -45,8 +45,10 @@ public class WebMvcConfig implements WebMvcConfigurer {
 //        converter.setGson(gson);
 //        converters.add(converter);
 //    }
+
     /**
      * JackSon统一处理时间时区问题
+     *
      * @return
      */
     @Bean
@@ -63,8 +65,8 @@ public class WebMvcConfig implements WebMvcConfigurer {
         objectMapper.setDateFormat(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"));
         //针对于JDK新时间类。序列化时带有T的问题，自定义格式化字符串
         JavaTimeModule javaTimeModule = new JavaTimeModule();
-        javaTimeModule.addSerializer(LocalDateTime.class,new LocalDateTimeSerializer(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
-        javaTimeModule.addDeserializer(LocalDateTime.class,new LocalDateTimeDeserializer(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+        javaTimeModule.addSerializer(LocalDateTime.class, new LocalDateTimeSerializer(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+        javaTimeModule.addDeserializer(LocalDateTime.class, new LocalDateTimeDeserializer(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
         objectMapper.registerModule(javaTimeModule);
         jsonConverter.setObjectMapper(objectMapper);
         return jsonConverter;

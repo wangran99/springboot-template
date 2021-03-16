@@ -74,7 +74,7 @@ public class TestController {
     }
 
     @GetMapping("null")
-    public Object testnull(){
+    public Integer testnull(){
         return null;
     }
 
