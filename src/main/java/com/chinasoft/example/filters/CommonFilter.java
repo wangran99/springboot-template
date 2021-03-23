@@ -1,8 +1,10 @@
 package com.chinasoft.example.filters;
 
 import com.chinasoft.example.constant.Constants;
+import com.chinasoft.example.redis.RedisService;
 import com.github.wangran99.welink.api.client.openapi.Constant;
 import com.github.wangran99.welink.api.client.openapi.OpenAPI;
+import com.github.wangran99.welink.api.client.openapi.model.AuthFailOrExpiredException;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,8 +33,8 @@ public class CommonFilter implements Filter {
     private AntPathMatcher matcher = new AntPathMatcher();
     @Autowired
     private OpenAPI openAPI;
-//    @Resource
-//    private RedisService redisService;
+    @Autowired
+    private RedisService redisService;
     //解决Filter中不能抛出异常的问题
     @Autowired
     @Qualifier("handlerExceptionResolver")
@@ -41,6 +43,7 @@ public class CommonFilter implements Filter {
     public CommonFilter() {
 
     }
+
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
@@ -52,7 +55,7 @@ public class CommonFilter implements Filter {
             filterChain.doFilter(servletRequest, servletResponse);
             return;
         }
-        if(openAPI==null){ //获取spring bean
+        if (openAPI == null) { //获取spring bean
             BeanFactory factory = WebApplicationContextUtils.getRequiredWebApplicationContext(request.getServletContext());
             openAPI = factory.getBean(OpenAPI.class);
             resolver = (HandlerExceptionResolver) factory.getBean("handlerExceptionResolver");
@@ -60,7 +63,10 @@ public class CommonFilter implements Filter {
 
 
         String authCode = request.getHeader(Constants.AUTH_CODE);
-
+        if (authCode == null || redisService.getUserInfo(authCode) == null) {
+            resolver.resolveException(request, response, null, new AuthFailOrExpiredException());
+            return;
+        }
         filterChain.doFilter(servletRequest, servletResponse);
     }
 

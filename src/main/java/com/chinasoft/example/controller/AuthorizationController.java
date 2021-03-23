@@ -148,7 +148,7 @@ public class AuthorizationController {
         }
         if (code == null || code.trim().isEmpty()) {
             response.setHeader(Constants.REDIRECT_URL_HEADER, welinkAuthUrl);
-            AuthFailOrExpiredException authFailOrExpiredException = new AuthFailOrExpiredException(ResultCode.AuthFailedOrExpired);
+            AuthFailOrExpiredException authFailOrExpiredException = new AuthFailOrExpiredException();
             authFailOrExpiredException.setAuthUrl(welinkAuthUrl);
             throw authFailOrExpiredException;
         }
