@@ -4,6 +4,17 @@
 [后端开发须知](http://192.168.11.111:8090/x/jgAF)
 ------
 ### [Welink开放平台服务端](https://open.welink.huaweicloud.com/docs/) 接口调用封装
+[welinkapi-spring-boot-starter](https://github.com/wangran99/welinkapi-spring-boot-starter) ![maven](https://img.shields.io/maven-central/v/com.github.wangran99/welinkapi-spring-boot-starter)
+ 封装了welink开放平台常用的接口
+
+pom中添加如下依赖：
+```properties
+<dependency>
+    <groupId>com.github.wangran99</groupId>
+    <artifactId>welinkapi-spring-boot-starter</artifactId>
+    <version>latest-version</version>
+</dependency>
+```
 在springboot项目的application.properties中添加welink We码或者轻应用的clientId和clientSecretKey。
 
 ```properties
@@ -21,7 +32,7 @@ private OpenAPI openAPI;
 private AuthRes authRes;
 
 void test(){
-    //获取租户信息
+    //获取租户信息.welink开放平台接口返回数据
     TenantInfoRes   tenantInfoRes = openAPI.getTenantInfo(authRes.getAccess_token());
 }
 ```
