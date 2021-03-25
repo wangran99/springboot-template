@@ -8,7 +8,7 @@
  封装了welink开放平台常用的接口
 
 pom中添加如下依赖：
-```properties
+```Maven 
 <dependency>
     <groupId>com.github.wangran99</groupId>
     <artifactId>welinkapi-spring-boot-starter</artifactId>
