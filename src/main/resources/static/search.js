@@ -23,50 +23,190 @@ api[0].list.push({
     desc: '用户退出(删除token)',
 });
 api.push({
-    alias: 'LoginUserController',
+    alias: 'CipherController',
     order: '2',
     link: '&lt;p&gt;_前端控制器&lt;/p&gt;',
     desc: '&lt;p&gt; 前端控制器&lt;/p&gt;',
     list: []
 })
 api.push({
-    alias: 'TestController',
+    alias: 'LoginUserController',
     order: '3',
+    link: '&lt;p&gt;_前端控制器&lt;/p&gt;',
+    desc: '&lt;p&gt; 前端控制器&lt;/p&gt;',
+    list: []
+})
+api.push({
+    alias: 'QrtzBlobTriggersController',
+    order: '4',
+    link: '&lt;p&gt;_前端控制器&lt;/p&gt;',
+    desc: '&lt;p&gt; 前端控制器&lt;/p&gt;',
+    list: []
+})
+api.push({
+    alias: 'QrtzCalendarsController',
+    order: '5',
+    link: '&lt;p&gt;_前端控制器&lt;/p&gt;',
+    desc: '&lt;p&gt; 前端控制器&lt;/p&gt;',
+    list: []
+})
+api.push({
+    alias: 'QrtzCronTriggersController',
+    order: '6',
+    link: '&lt;p&gt;_前端控制器&lt;/p&gt;',
+    desc: '&lt;p&gt; 前端控制器&lt;/p&gt;',
+    list: []
+})
+api.push({
+    alias: 'QrtzFiredTriggersController',
+    order: '7',
+    link: '&lt;p&gt;_前端控制器&lt;/p&gt;',
+    desc: '&lt;p&gt; 前端控制器&lt;/p&gt;',
+    list: []
+})
+api.push({
+    alias: 'QrtzJobDetailsController',
+    order: '8',
+    link: '&lt;p&gt;_前端控制器&lt;/p&gt;',
+    desc: '&lt;p&gt; 前端控制器&lt;/p&gt;',
+    list: []
+})
+api.push({
+    alias: 'QrtzLocksController',
+    order: '9',
+    link: '&lt;p&gt;_前端控制器&lt;/p&gt;',
+    desc: '&lt;p&gt; 前端控制器&lt;/p&gt;',
+    list: []
+})
+api.push({
+    alias: 'QrtzPausedTriggerGrpsController',
+    order: '10',
+    link: '&lt;p&gt;_前端控制器&lt;/p&gt;',
+    desc: '&lt;p&gt; 前端控制器&lt;/p&gt;',
+    list: []
+})
+api.push({
+    alias: 'QrtzSchedulerStateController',
+    order: '11',
+    link: '&lt;p&gt;_前端控制器&lt;/p&gt;',
+    desc: '&lt;p&gt; 前端控制器&lt;/p&gt;',
+    list: []
+})
+api.push({
+    alias: 'QrtzSimpleTriggersController',
+    order: '12',
+    link: '&lt;p&gt;_前端控制器&lt;/p&gt;',
+    desc: '&lt;p&gt; 前端控制器&lt;/p&gt;',
+    list: []
+})
+api.push({
+    alias: 'QrtzSimpropTriggersController',
+    order: '13',
+    link: '&lt;p&gt;_前端控制器&lt;/p&gt;',
+    desc: '&lt;p&gt; 前端控制器&lt;/p&gt;',
+    list: []
+})
+api.push({
+    alias: 'QrtzTriggersController',
+    order: '14',
+    link: '&lt;p&gt;_前端控制器&lt;/p&gt;',
+    desc: '&lt;p&gt; 前端控制器&lt;/p&gt;',
+    list: []
+})
+api.push({
+    alias: 'SysAlarmWhitelistController',
+    order: '15',
+    link: '&lt;p&gt;告警白名单_前端控制器&lt;/p&gt;',
+    desc: '&lt;p&gt;告警白名单 前端控制器&lt;/p&gt;',
+    list: []
+})
+api.push({
+    alias: 'SysDictDataController',
+    order: '16',
+    link: '&lt;p&gt;字典数据表_前端控制器&lt;/p&gt;',
+    desc: '&lt;p&gt;字典数据表 前端控制器&lt;/p&gt;',
+    list: []
+})
+api.push({
+    alias: 'SysDictTypeController',
+    order: '17',
+    link: '&lt;p&gt;字典类型表_前端控制器&lt;/p&gt;',
+    desc: '&lt;p&gt;字典类型表 前端控制器&lt;/p&gt;',
+    list: []
+})
+api.push({
+    alias: 'SysExceptionMessageController',
+    order: '18',
+    link: '&lt;p&gt;异常信息管理_前端控制器&lt;/p&gt;',
+    desc: '&lt;p&gt;异常信息管理 前端控制器&lt;/p&gt;',
+    list: []
+})
+api.push({
+    alias: 'SysJobController',
+    order: '19',
+    link: '&lt;p&gt;定时任务调度表_前端控制器&lt;/p&gt;',
+    desc: '&lt;p&gt;定时任务调度表 前端控制器&lt;/p&gt;',
+    list: []
+})
+api.push({
+    alias: 'SysJobLogController',
+    order: '20',
+    link: '&lt;p&gt;定时任务调度日志表_前端控制器&lt;/p&gt;',
+    desc: '&lt;p&gt;定时任务调度日志表 前端控制器&lt;/p&gt;',
+    list: []
+})
+api.push({
+    alias: 'SysLoginInfoController',
+    order: '21',
+    link: '&lt;p&gt;系统访问记录_前端控制器&lt;/p&gt;',
+    desc: '&lt;p&gt;系统访问记录 前端控制器&lt;/p&gt;',
+    list: []
+})
+api.push({
+    alias: 'SysOperLogController',
+    order: '22',
+    link: '&lt;p&gt;操作日志记录_前端控制器&lt;/p&gt;',
+    desc: '&lt;p&gt;操作日志记录 前端控制器&lt;/p&gt;',
+    list: []
+})
+api.push({
+    alias: 'TestController',
+    order: '23',
     link: '测试服务是否正常启动',
     desc: '测试服务是否正常启动',
     list: []
 })
-api[2].list.push({
+api[22].list.push({
     order: '1',
     desc: '测试返回字符串',
 });
-api[2].list.push({
+api[22].list.push({
     order: '2',
     desc: '测试后台welink调用是否成功',
 });
-api[2].list.push({
+api[22].list.push({
     order: '3',
     desc: '测试数据库读取是否正常',
 });
-api[2].list.push({
+api[22].list.push({
     order: '4',
     desc: '',
 });
-api[2].list.push({
+api[22].list.push({
     order: '5',
     desc: '',
 });
-api[2].list.push({
+api[22].list.push({
     order: '6',
     desc: '',
 });
-api[2].list.push({
+api[22].list.push({
     order: '7',
     desc: '',
 });
 api.push({
     alias: 'dict',
-    order: '4',
+    order: '24',
     link: 'dict_list',
     desc: '数据字典',
     list: []
