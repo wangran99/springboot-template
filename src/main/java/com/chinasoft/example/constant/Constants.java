@@ -1,6 +1,6 @@
 package com.chinasoft.example.constant;
 
-import org.springframework.beans.factory.annotation.Value;
+
 
 public class Constants {
 

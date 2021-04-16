@@ -1,6 +1,6 @@
 package com.chinasoft.example.filters;
 
-import com.chinasoft.example.filters.CommonFilter;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;

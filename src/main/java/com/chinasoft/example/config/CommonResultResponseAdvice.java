@@ -2,13 +2,8 @@ package com.chinasoft.example.config;
 
 
 
-//import com.fasterxml.jackson.core.JsonProcessingException;
-//import com.fasterxml.jackson.databind.ObjectMapper;
-import com.github.wangran99.welink.api.client.openapi.model.AuthFailOrExpiredException;
+
 import com.github.wangran99.welink.api.client.openapi.model.ResultVO;
-import com.google.gson.Gson;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.configurationprocessor.json.JSONObject;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;

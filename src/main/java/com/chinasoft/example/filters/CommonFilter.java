@@ -2,13 +2,11 @@ package com.chinasoft.example.filters;
 
 import com.chinasoft.example.constant.Constants;
 import com.chinasoft.example.redis.RedisService;
-import com.github.wangran99.welink.api.client.openapi.Constant;
 import com.github.wangran99.welink.api.client.openapi.OpenAPI;
 import com.github.wangran99.welink.api.client.openapi.model.AuthFailOrExpiredException;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.BeanFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.util.AntPathMatcher;
@@ -17,7 +15,6 @@ import org.springframework.web.servlet.HandlerExceptionResolver;
 
 
 import javax.servlet.*;
-import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -30,7 +27,7 @@ import java.util.Set;
 public class CommonFilter implements Filter {
     private final static Set<String> excludeUri = new HashSet<>(
             Arrays.asList("/authorization/*", "/druid/*", "/test/*"));
-    private AntPathMatcher matcher = new AntPathMatcher();
+    final AntPathMatcher matcher = new AntPathMatcher();
     @Autowired
     private OpenAPI openAPI;
     @Autowired
@@ -72,7 +69,7 @@ public class CommonFilter implements Filter {
 
     //排除过滤的url
     private boolean isExclusion(HttpServletRequest request) {
-        if (excludeUri == null || excludeUri.isEmpty()) {
+        if ( excludeUri.isEmpty()) {
             return false;
         }
         String requestURI = request.getRequestURI();

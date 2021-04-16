@@ -7,10 +7,8 @@ import com.github.wangran99.welink.api.client.openapi.model.AuthFailOrExpiredExc
 import com.github.wangran99.welink.api.client.openapi.model.OpenApiException;
 import com.github.wangran99.welink.api.client.openapi.model.ResultVO;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
 
 /**
@@ -49,7 +47,7 @@ public class GlobalExceptionHandler {
     }
 
     /**
-     * 调用welink开放平台时出现的异常处理逻辑
+     * 调用Welink开放平台时出现的异常处理逻辑
      *
      * @param e
      * @return
