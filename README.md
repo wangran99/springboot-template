@@ -28,12 +28,10 @@ welink.openapi.client-secret=a19af76f-23fdf-43fe-fd32-fdf54gf54
 ```java
 @Autowired
 private OpenAPI openAPI;
-@Autowired
-private AuthRes authRes;
 
 void test(){
     //获取租户信息.welink开放平台接口返回数据
-    TenantInfoRes   tenantInfoRes = openAPI.getTenantInfo(authRes.getAccess_token());
+    TenantInfoRes   tenantInfoRes = openAPI.getTenantInfo();
 }
 ```
 更多welink开放平台接口封装在openAPI类中。
@@ -65,7 +63,7 @@ Redis缓存用户信息、租户信息的操作封装在RedisService类中，如
 @GetMapping("welink")
 @RequestLimit(maxCount = 10, timeout = 60)
 public TenantInfoRes welink(){
-     TenantInfoRes tenantInfoRes = openAPI.getTenantInfo(authRes.getAccess_token());
+     TenantInfoRes tenantInfoRes = openAPI.getTenantInfo();
      return tenantInfoRes;
 }
 ```

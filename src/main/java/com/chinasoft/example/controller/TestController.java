@@ -58,7 +58,7 @@ public class TestController {
     @GetMapping("welink")
     @RequestLimit
     public TenantInfoRes welink(){
-        TenantInfoRes tenantInfoRes = openAPI.getTenantInfo(authRes.getAccess_token());
+        TenantInfoRes tenantInfoRes = openAPI.getTenantInfo();
         return tenantInfoRes;
     }
 
