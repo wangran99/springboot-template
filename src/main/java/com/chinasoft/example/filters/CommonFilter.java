@@ -88,7 +88,7 @@ public class CommonFilter implements Filter {
     //排除过滤的url
     private boolean isExclusion(HttpServletRequest request) {
         if (EXCLUDE_URI.isEmpty()) {
-            return true;
+            return true; 
         }
         String requestURI = request.getRequestURI();
         String requestContext = request.getContextPath();
