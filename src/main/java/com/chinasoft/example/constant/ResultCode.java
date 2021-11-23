@@ -15,7 +15,7 @@ public enum ResultCode implements IException {
     AuthFailedOrExpired(2,"user authorization failed or expired."),
 
     RequestLimitException(1001,"request too frequent,please wait a moment."),
-
+    TenantException(1002,"you cannot access other tenant's data."),
     //search parameter error
     SEARCH_OFFSET_OR_LIMIT_EMPTY(56120, "the parameter offset or limit cannot be null"),
     SEARCH_DATE_RANGE_TOO_LONG(56121, "te date time range has exceeded the limit"),

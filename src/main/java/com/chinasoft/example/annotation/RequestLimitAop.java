@@ -25,18 +25,18 @@ public class RequestLimitAop {
     @Autowired
     private RedisTemplate redisTemplate;
 
-    @Pointcut("@annotation(com.chinasoft.example.annotation.RequestLimit)")
-    private void pointCut(){ }
-
-    @Before("pointCut() && @annotation(limit)")
-    public void before(JoinPoint joinPoint,RequestLimit limit)  {
-        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getRequest();
-        String key = "req_limit_".concat(request.getRequestURI()).concat("_").concat(Constants.AUTH_CODE);
-        boolean checkResult = checkWithRedis(limit, key);
-        if (!checkResult) {
-            throw new RequestLimitException();
-        }
-    }
+//    @Pointcut("@annotation(com.chinasoft.example.annotation.RequestLimit)")
+//    private void pointCut(){ }
+//
+//    @Before("pointCut() && @annotation(limit)")
+//    public void before(JoinPoint joinPoint,RequestLimit limit)  {
+//        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getRequest();
+//        String key = "req_limit_".concat(request.getRequestURI()).concat("_").concat(Constants.AUTH_CODE);
+//        boolean checkResult = checkWithRedis(limit, key);
+//        if (!checkResult) {
+//            throw new RequestLimitException();
+//        }
+//    }
 
     /**
      * 以redis实现请求记录

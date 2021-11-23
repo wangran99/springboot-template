@@ -86,7 +86,7 @@ public class TestController {
     @GetMapping("redis")
     public UserBasicInfoRes testRedisSave(){
         String userId ="zhoulipeng@49c415a8500";
-        UserBasicInfoRes userBasicInfoRes = openAPI.getUserInfoById(authRes.getAccess_token(), userId);
+        UserBasicInfoRes userBasicInfoRes = openAPI.getUserInfoById(userId);
         redisService.saveUserInfo(userId,userBasicInfoRes);
         return userBasicInfoRes;
     }

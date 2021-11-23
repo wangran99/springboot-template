@@ -6,7 +6,7 @@ import org.springframework.core.annotation.Order;
 import java.lang.annotation.*;
 
 @Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.METHOD)
+@Target({ElementType.METHOD,ElementType.TYPE})
 @Documented
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public @interface RequestLimit {
@@ -14,7 +14,7 @@ public @interface RequestLimit {
     String methodName() default "";
 
     //访问次数
-    int maxCount() default 10;
+    int maxCount() default 20;
 
     //业务KEY
     String paramKey() default "CDPathSta";
@@ -25,3 +25,4 @@ public @interface RequestLimit {
     //过期时间(单位秒)
     long timeout() default 60;
 }
+
